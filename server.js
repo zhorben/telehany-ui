@@ -22,10 +22,10 @@ app.prepare().then(async () => {
     ctx.respond = false
   })
 
-  // router.get('/brand/:id', async ctx => {
-  //   await app.render(ctx.req, ctx.res, '/brand', { id: ctx.params.id })
-  //   ctx.respond = false
-  // })
+  router.get('/brand/:id', async ctx => {
+    await app.render(ctx.req, ctx.res, '/brand', { id: ctx.params.id })
+    ctx.respond = false
+  })
 
   router.all('*', async ctx => {
     await handle(ctx.req, ctx.res)

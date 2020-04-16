@@ -3,11 +3,9 @@ export default ({ error }) => {
 
   return (
     <div className="errors">
-      {error.graphQLErrors.map(({ message }, i) => (
-        <span key={i} style={{ color: 'red' }}>
-          {message}
-        </span>
-      ))}
+      <span style={{ color: 'red' }}>
+        {error}
+      </span>
     </div>
   )
 }
