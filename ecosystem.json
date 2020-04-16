@@ -1,7 +1,7 @@
 {
   "apps" : [{
     "name": "zhorben",
-    "script": "server",
+    "script": "server.js",
     "instances": 1,
     "max_memory_restart": "2G",
     "kill_timeout": 5000,
