@@ -1,10 +1,11 @@
 import axios from 'axios'
 
-console.log(process.env.NODE_ENV)
+const baseURL = process.env.NODE_ENV !== 'production'
+  ? 'https://krasnoevino.ga'
+  : 'http://localhost:3001'
 
 export default axios.create({
-  // baseURL: 'http://localhost:3001',
-  baseURL: 'https://krasnoevino.ga',
+  baseURL,
   validateStatus: status => {
     if (status === 401) {
       localStorage.removeItem('token')
