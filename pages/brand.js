@@ -1,21 +1,10 @@
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-
-import { designerById } from '../redux/ac/designers'
+import client from '../network'
 
 import Main from '../src/components/Main'
 import Header from '../src/components/Header'
 import Errors from '../src/components/Errors'
 
-const Brand = ({ id }) => {
-  const dispatch = useDispatch()
-  const designer = useSelector(state => state.designers.entities.get(id))
-  const error = useSelector(state => state.designers.error)
-
-  useEffect(() => {
-    if (!designer) dispatch(designerById(id))
-  }, [])
-
+function Brand({ designer, error }) {
   return (
     <Main>
       <Header />
@@ -42,6 +31,13 @@ const Brand = ({ id }) => {
   )
 }
 
-Brand.getInitialProps = async ({ query: { id } }) => ({ id })
+Brand.getInitialProps = async ({ query: { id } }) => {
+  try {
+    const response = await client.get(`/api/designers/${id}`)
+    return { designer: response.data.designer }
+  } catch (error) {
+    return { error: error.response.data.error }
+  }
+}
 
 export default Brand

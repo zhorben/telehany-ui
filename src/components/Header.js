@@ -20,7 +20,7 @@ export default function Header() {
       </div>
       <div>
         {token ? (
-          <button onClick={logout}>Logout</button>
+          <button type="button" onClick={logout}>Logout</button>
         ) : (
           <React.Fragment>
             <Link href="/signin">
