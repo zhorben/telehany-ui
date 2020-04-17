@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseURL = process.env.NODE_ENV !== 'production'
+const baseURL = process.env.NODE_ENV === 'production'
   ? 'https://krasnoevino.ga'
   : 'http://localhost:3001'
 
