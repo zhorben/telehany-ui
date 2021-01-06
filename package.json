@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/zhorben/telehany-ui#readme",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "formik": "^2.1.4",
     "immutable": "^4.0.0-rc.12",
     "koa": "^2.11.0",
